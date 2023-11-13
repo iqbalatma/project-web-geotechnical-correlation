@@ -28,6 +28,20 @@
 </template>
 
 <script setup lang="ts">
+async function addCompany(body) {
+  const data = await $fetch('http://localhost:8020/api/v1/auth', {
+    method: 'POST',
+    body: body
+  });
+
+  console.log(data);
+}
+
+addCompany({
+  "email": "superadmin@mail.com",
+  "password": "admin",
+})
+
 useHead({
   title: "Login"
 })
